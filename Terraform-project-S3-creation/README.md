@@ -4,48 +4,6 @@ Terraform Project: S3 Creation and VPC Setup
 
 This project is a well-structured Terraform configuration for provisioning AWS infrastructure across different environments (Dev and Prod). It primarily provisions S3 buckets and VPC resources using reusable modules. The project follows best practices including modularization, environment isolation, and remote state management.
 
-                                                        📂 Directory Structure Explained
-
-Terraform-project-S3-creation/
-│
-├── .terraform/                 # Terraform internal directory for plugins and state data
-│
-├── Env/                        # Contains environment-specific configurations
-│   ├── Dev/                    # Development environment
-│   │   ├── S3-Bucket/          # S3 module usage for Dev
-│   │   │   ├── backend.tf            # Backend config for remote state
-│   │   │   ├── main.tf               # Calls s3_bucket module
-│   │   │   ├── outputs.tf            # Output values after apply
-│   │   │   ├── terraform.tfvars      # Variable values specific to Dev S3
-│   │   │   └── variables.tf          # Declares expected variables
-│   │   └── Vpc/                # VPC module usage for Dev
-│   │       ├── backend.tf
-│   │       ├── main.tf
-│   │       ├── outputs.tf
-│   │       └── variables.tf
-│   │
-│   └── Prod/                   # Production environment
-│       └── S3-Bucket/          # S3 module usage for Prod
-│           ├── backend.tf
-│           ├── main.tf
-│           ├── outputs.tf
-│           ├── terraform.tfvars
-│           └── variables.tf
-│
-├── modules/                    # Reusable infrastructure modules
-│   ├── s3_bucket/              # Module to create S3 bucket
-│   │   ├── main.tf             # Contains resource definitions
-│   │   ├── outputs.tf          # Outputs from module
-│   │   └── variables.tf        # Variables used in module
-│   └── Vpc/                    # Module to create VPC (assumed similar structure)
-│       ├── main.tf
-│       ├── outputs.tf
-│       └── variables.tf
-│
-├── provider.tf                # Root provider configuration (AWS provider, region, etc.)
-├── variables.tf               # Global variables (if shared across modules)
-└── README.md                  # Project documentation (this file)
-
                                                                       🧰 Modules
 
 modules/s3_bucket
