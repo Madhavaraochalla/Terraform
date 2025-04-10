@@ -1,0 +1,20 @@
+Synopsis:
+1.Create VPC MYVPC1
+2.Create subnet SN1
+3.Create suubnet  SN2
+4.Create Internet gateway MYIGW
+5.Attach VPC to InternetGateway MYVPCIGW
+6.Create route table MYRT1
+7.Add MYIGW(Internet gateway) under Routes of RouteTable MYRT1 - MYRT1IGW
+8.Attach MYRT1 Route table to SubnetSN1 -MYSN1RT
+9.Create a Security Group MYSG1->Port 22 and 80 add rules under Inbound rules of MYSG1
+10.Create M1 instance with Userdata and below details
+a.Subnet:SN1
+b.SecurityGroup:MYSG1
+11.Create Elastic IP for NAT - EIP4NAT
+12.Create NAT Gateway - MYNAT under Public Subnet SN1
+13.Create a route table MYRT2
+14.Add MYNAT(NAT Gateway)under routes of RouteTable MYRT2 - MYRTNAT
+15. Attach MYRT2 routetable to Subnet SN2 - MYSN2RT
+16. Create one elastic IP,MYEIP
+17. Allocate that elastic IP MYEIP to EC2 instance M1
